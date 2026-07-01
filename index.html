@@ -350,9 +350,9 @@ body {
 /* ── GALLERY ── */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 280px;
-  gap: 16px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 260px 260px;
+  gap: 14px;
 }
 .gallery-item {
   border-radius: var(--radius); overflow: hidden;
@@ -377,18 +377,17 @@ body {
 .gallery-item:hover .gallery-caption { opacity: 1; }
 
 .gallery-item.span-2 { grid-column: span 2; }
-.gallery-item.tall { grid-row: span 2; }
 
 @media (max-width: 768px) {
   .gallery-grid {
     grid-template-columns: 1fr 1fr;
-    grid-auto-rows: 200px;
+    grid-template-rows: repeat(4, 200px);
   }
   .gallery-item.span-2 { grid-column: span 1; }
-  .gallery-item.tall { grid-row: span 1; }
 }
 @media (max-width: 480px) {
-  .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
+  .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .gallery-item { height: 220px; }
 }
 
 /* ── REVIEWS ── */
@@ -446,10 +445,8 @@ body {
 /* ── CONTACT ── */
 .contact-section { background: var(--surface); }
 .contact-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 48px; align-items: start;
+  max-width: 560px; margin: 0 auto;
 }
-@media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
 
 .contact-info { display: flex; flex-direction: column; gap: 16px; }
 .contact-item {
@@ -471,24 +468,7 @@ body {
 .contact-item-label { font-size: 0.82rem; color: var(--text-dim); }
 .contact-item-value { font-weight: 600; }
 
-.contact-form {
-  background: var(--bg); border: 1px solid var(--border);
-  border-radius: 16px; padding: 32px;
-  display: flex; flex-direction: column; gap: 16px;
-}
-.contact-form label { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 4px; display: block; }
-.contact-form input,
-.contact-form textarea {
-  width: 100%; background: var(--surface);
-  border: 1.5px solid var(--border);
-  color: var(--text);
-  padding: 12px 16px; border-radius: 10px;
-  font-family: inherit; font-size: 0.95rem;
-  transition: border-color 0.2s;
-}
-.contact-form input:focus,
-.contact-form textarea:focus { outline: none; border-color: var(--green); }
-.contact-form textarea { resize: vertical; min-height: 100px; }
+
 
 /* ── FOOTER ── */
 .footer {
@@ -832,32 +812,24 @@ body {
         <span class="gallery-caption">Pavaj finalizat — intrare curte</span>
       </div>
       <div class="gallery-item reveal" onclick="openLightbox(this)">
-        <img src="montarepavaj.jpg" alt="Montaj pavaj ansamblu rezidential" loading="lazy">
-        <span class="gallery-caption">Montaj pavaj — ansamblu rezidential</span>
-      </div>
-      <div class="gallery-item reveal" onclick="openLightbox(this)">
-        <img src="lucrare3.jpg" alt="Pregatire teren cu geotextil" loading="lazy">
-        <span class="gallery-caption">Pregatire teren — geotextil si pietris</span>
+        <img src="lucrareterminata.jpg" alt="Curte complet pavata" loading="lazy">
+        <span class="gallery-caption">Curte pavata — Buzau</span>
       </div>
       <div class="gallery-item reveal" onclick="openLightbox(this)">
         <img src="lucrare4.jpg" alt="Alee pavata cu rigola" loading="lazy">
-        <span class="gallery-caption">Alee pavata cu rigola centrala</span>
+        <span class="gallery-caption">Alee cu rigola centrala</span>
+      </div>
+      <div class="gallery-item reveal" onclick="openLightbox(this)">
+        <img src="montarepavaj.jpg" alt="Montaj pavaj ansamblu rezidential" loading="lazy">
+        <span class="gallery-caption">Montaj — ansamblu rezidential</span>
+      </div>
+      <div class="gallery-item reveal" onclick="openLightbox(this)">
+        <img src="lucrare3.jpg" alt="Pregatire teren cu geotextil" loading="lazy">
+        <span class="gallery-caption">Pregatire teren — geotextil</span>
       </div>
       <div class="gallery-item span-2 reveal" onclick="openLightbox(this)">
         <img src="pavaj.jpg" alt="Echipa pregatind baza de pietris" loading="lazy">
-        <span class="gallery-caption">Echipa la lucru — pregatire fundatie</span>
-      </div>
-      <div class="gallery-item reveal" onclick="openLightbox(this)">
-        <img src="lucrareterminata.jpg" alt="Curte complet pavata" loading="lazy">
-        <span class="gallery-caption">Curte complet pavata — Buzau</span>
-      </div>
-      <div class="gallery-item reveal" onclick="openLightbox(this)">
-        <img src="lucrare2.jpg" alt="Proiect in desfasurare" loading="lazy">
-        <span class="gallery-caption">Proiect in desfasurare — Maracineni</span>
-      </div>
-      <div class="gallery-item reveal" onclick="openLightbox(this)">
-        <img src="lucrare1.jpg" alt="Teren inainte de amenajare" loading="lazy">
-        <span class="gallery-caption">Teren inainte de amenajare</span>
+        <span class="gallery-caption">Echipa la lucru — fundatie pietris</span>
       </div>
     </div>
   </div>
@@ -987,7 +959,7 @@ body {
 
 <!-- Contact -->
 <section class="section contact-section" id="contact">
-  <div class="section-inner">
+  <div class="section-inner section-center">
     <div class="section-label reveal">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
       Contact
@@ -1034,22 +1006,6 @@ body {
           </div>
         </div>
       </div>
-
-      <form class="contact-form reveal" onsubmit="handleContactSubmit(event)">
-        <div>
-          <label for="cf-name">Nume</label>
-          <input id="cf-name" type="text" required placeholder="Numele tau">
-        </div>
-        <div>
-          <label for="cf-phone">Telefon</label>
-          <input id="cf-phone" type="tel" required placeholder="07xx xxx xxx">
-        </div>
-        <div>
-          <label for="cf-message">Descrie ce ai nevoie</label>
-          <textarea id="cf-message" required placeholder="Ex: Vreau sa pavez curtea de 80 mp..."></textarea>
-        </div>
-        <button type="submit" class="btn-primary" style="justify-content:center; width:100%;">Trimite cererea</button>
-      </form>
     </div>
   </div>
 </section>
@@ -1218,28 +1174,7 @@ function sendQuick(text) {
   sendMessage();
 }
 
-// Contact form
-async function handleContactSubmit(e) {
-  e.preventDefault();
-  const data = {
-    name: document.getElementById('cf-name').value,
-    phone: document.getElementById('cf-phone').value,
-    message: document.getElementById('cf-message').value,
-    client_id: CLIENT_ID,
-  };
-  try {
-    await fetch('https://api.coredigital.ro/leads', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
-    alert('Multumim! Te contactam in cel mai scurt timp.');
-    e.target.reset();
-  } catch (err) {
-    const wa = `https://wa.me/40799142931?text=${encodeURIComponent(`Salut! Sunt ${data.name} (${data.phone}). ${data.message}`)}`;
-    window.open(wa, '_blank');
-  }
-}
+
 </script>
 
 </body>
